@@ -11,6 +11,8 @@ Or programmatically:
 from __future__ import annotations
 
 import tempfile
+import threading
+import time
 from pathlib import Path
 
 from .analyzer import FaceAnalyzer
@@ -21,6 +23,12 @@ from .providers import (
     DEFAULT_POLLINATIONS_MODEL,
     build_provider,
 )
+
+# Typical per-request latency hints shown to the user while waiting.
+PROVIDER_HINTS = {
+    "openrouter": "通常 3–4 分钟（图像模型很慢，请耐心等）",
+    "pollinations": "通常 1–3 秒",
+}
 
 
 CATEGORY_LABELS_ZH = {
@@ -83,13 +91,19 @@ def build_app():
         style_label: str,
         provider_name: str,
         model_name: str,
+        progress=gr.Progress(track_tqdm=False),
     ):
+        """Streaming generator: yields (image, meta_md, status_md) updates."""
         if not photo_path:
             raise gr.Error("请先上传一张正面照")
         if not style_label:
             raise gr.Error("请选择一个预设")
 
         style = _resolve(style_label, category)
+        hint = PROVIDER_HINTS.get(provider_name, "")
+
+        progress(0.0, desc="准备 provider…")
+        yield None, "", f"⏳ **正在生成 `{style.slug}`** — {hint}\n\n_0s 已用_"
 
         if provider_name == "openrouter":
             key = get_api_key()
@@ -111,8 +125,38 @@ def build_app():
 
         out_dir = Path(tempfile.mkdtemp(prefix="stylekit_web_"))
         out = out_dir / f"{style.category}_{style.id}.png"
-        result = provider.transform(Path(photo_path), style, out)
 
+        # Run the blocking API call in a thread so we can pulse a status / progress bar.
+        holder: dict = {}
+
+        def _work():
+            try:
+                holder["result"] = provider.transform(Path(photo_path), style, out)
+            except Exception as e:  # noqa: BLE001 — surfaced through main thread
+                holder["error"] = e
+
+        t = threading.Thread(target=_work, daemon=True)
+        t.start()
+
+        # Heartbeat: update elapsed seconds every second while the worker runs.
+        # Estimate progress against a model-dependent total so the bar moves.
+        expected_total = 210 if provider_name == "openrouter" else 5
+        t0 = time.time()
+        while t.is_alive():
+            t.join(timeout=1.0)
+            elapsed = time.time() - t0
+            frac = min(0.97, elapsed / expected_total)
+            progress(frac, desc=f"生成中 · {int(elapsed)}s")
+            yield (
+                None,
+                "",
+                f"⏳ **正在生成 `{style.slug}`** — {hint}\n\n_已用 {int(elapsed)}s_",
+            )
+
+        if "error" in holder:
+            raise gr.Error(f"生成失败: {holder['error']}")
+
+        result = holder["result"]
         cost = f"${result.cost_usd:.4f}" if result.cost_usd > 0 else "免费"
         meta = (
             f"**{style.name_zh}** (`{style.slug}`)\n\n"
@@ -121,16 +165,46 @@ def build_app():
             f"- 花费: {cost}\n"
             f"- 输出: `{result.output_path}`"
         )
-        return str(result.output_path), meta
+        progress(1.0, desc="完成")
+        yield str(result.output_path), meta, f"✅ **完成** · {result.elapsed_s}s · {cost}"
 
-    def on_analyze(photo_path: str | None):
+    def on_analyze(
+        photo_path: str | None,
+        progress=gr.Progress(track_tqdm=False),
+    ):
+        """Streaming: yields status markdown then final analysis markdown."""
         if not photo_path:
             raise gr.Error("请先上传一张正面照")
         key = get_api_key()
         if not key:
             raise gr.Error("人像分析需要 OpenRouter key，先运行 `stylekit setup`")
-        face = FaceAnalyzer(key).analyze(Path(photo_path))
-        d = face.to_dict()
+
+        progress(0.0, desc="调用 Claude vision…")
+        yield "⏳ **正在分析人像** — 通常 10–30 秒\n\n_0s 已用_"
+
+        holder: dict = {}
+
+        def _work():
+            try:
+                holder["face"] = FaceAnalyzer(key).analyze(Path(photo_path))
+            except Exception as e:  # noqa: BLE001
+                holder["error"] = e
+
+        t = threading.Thread(target=_work, daemon=True)
+        t.start()
+
+        t0 = time.time()
+        while t.is_alive():
+            t.join(timeout=1.0)
+            elapsed = time.time() - t0
+            frac = min(0.95, elapsed / 25.0)
+            progress(frac, desc=f"分析中 · {int(elapsed)}s")
+            yield f"⏳ **正在分析人像** — 通常 10–30 秒\n\n_已用 {int(elapsed)}s_"
+
+        if "error" in holder:
+            raise gr.Error(f"分析失败: {holder['error']}")
+
+        d = holder["face"].to_dict()
         lines = [
             f"**脸型** {d['face_shape']}  |  **肤色** {d['skin_tone']}/{d['skin_tone_depth']}",
             f"**性别** {d['gender']}  |  **年龄** ~{d['age_estimate']}",
@@ -138,7 +212,8 @@ def build_app():
             "",
             "**改造建议**：",
         ] + [f"- {s}" for s in d["suggested_directions"]]
-        return "\n".join(lines)
+        progress(1.0, desc="完成")
+        yield "\n".join(lines)
 
     default_provider = get_setting("default_provider") or (
         "openrouter" if get_api_key() else "pollinations"
@@ -186,14 +261,21 @@ def build_app():
 
             with gr.Column(scale=1):
                 output_image = gr.Image(label="生成结果", height=380)
+                status_md = gr.Markdown()
                 meta_md = gr.Markdown()
 
         category.change(on_category_change, inputs=category, outputs=preset)
-        analyze_btn.click(on_analyze, inputs=photo, outputs=analysis_md)
+        analyze_btn.click(
+            on_analyze,
+            inputs=photo,
+            outputs=analysis_md,
+            show_progress="full",
+        )
         generate_btn.click(
             on_generate,
             inputs=[photo, category, preset, provider, model],
-            outputs=[output_image, meta_md],
+            outputs=[output_image, meta_md, status_md],
+            show_progress="full",
         )
 
     return demo
