@@ -22,7 +22,7 @@ from .presets import Style
 OPENROUTER_BASE = "https://openrouter.ai/api/v1"
 POLLINATIONS_BASE = "https://image.pollinations.ai"
 
-PRESERVE_INSTRUCT = """Keep absolutely identical: the subject's face (all features, skin tone, eye shape, lip shape), age, any eyewear, expression, clothing (unless this is an outfit change), background, lighting, camera angle, and pose. Output a photorealistic portrait of the same person with only the specified change applied."""
+PRESERVE_INSTRUCT = """Keep absolutely identical: the subject's face (all features, skin tone, eye shape, lip shape), perceived gender and gender presentation, age, any eyewear, expression, clothing (unless this is an outfit change), background, lighting, camera angle, and pose. If the source photo shows a man, the output MUST still be the same man — do not feminize or masculinize the subject under any circumstance. Output a photorealistic portrait of the same person with only the specified change applied."""
 
 
 @dataclass

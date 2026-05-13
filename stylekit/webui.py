@@ -49,17 +49,28 @@ def _category_choices() -> list[tuple[str, str]]:
     ]
 
 
-def _presets_for(category: str) -> list[Style]:
-    return load_presets(category)
+GENDER_BADGE = {"male": " [♂ 男]", "female": " [♀ 女]"}
+
+
+def _presets_for(category: str, gender_filter: str = "any") -> list[Style]:
+    items = load_presets(category)
+    if gender_filter == "any":
+        return items
+    # Keep presets that target this gender OR have no gender constraint
+    return [
+        p for p in items
+        if not p.best_for.get("gender") or p.best_for.get("gender") == gender_filter
+    ]
 
 
 def _label(s: Style) -> str:
-    return f"{s.slug}  —  {s.name_zh}"
+    g = (s.best_for or {}).get("gender", "")
+    return f"{s.slug}  —  {s.name_zh}{GENDER_BADGE.get(g, '')}"
 
 
 def _resolve(style_label: str, category: str) -> Style:
     slug = style_label.split("  —  ", 1)[0].strip()
-    for p in _presets_for(category):
+    for p in load_presets(category):
         if p.slug == slug:
             return p
     raise ValueError(f"Unknown preset: {style_label}")
@@ -81,8 +92,8 @@ def build_app():
     category_choices = _category_choices()
     default_cat = "hairstyle" if "hairstyle" in categories else categories[0]
 
-    def on_category_change(cat: str):
-        choices = [_label(s) for s in _presets_for(cat)]
+    def _refresh_presets(cat: str, gender_filter: str):
+        choices = [_label(s) for s in _presets_for(cat, gender_filter)]
         return gr.update(choices=choices, value=choices[0] if choices else None)
 
     def on_generate(
@@ -172,7 +183,7 @@ def build_app():
         photo_path: str | None,
         progress=gr.Progress(track_tqdm=False),
     ):
-        """Streaming: yields status markdown then final analysis markdown."""
+        """Streaming: yields (analysis_md, gender_filter_update) tuples."""
         if not photo_path:
             raise gr.Error("请先上传一张正面照")
         key = get_api_key()
@@ -180,7 +191,7 @@ def build_app():
             raise gr.Error("人像分析需要 OpenRouter key，先运行 `stylekit setup`")
 
         progress(0.0, desc="调用 Claude vision…")
-        yield "⏳ **正在分析人像** — 通常 10–30 秒\n\n_0s 已用_"
+        yield "⏳ **正在分析人像** — 通常 10–30 秒\n\n_0s 已用_", gr.update()
 
         holder: dict = {}
 
@@ -199,7 +210,10 @@ def build_app():
             elapsed = time.time() - t0
             frac = min(0.95, elapsed / 25.0)
             progress(frac, desc=f"分析中 · {int(elapsed)}s")
-            yield f"⏳ **正在分析人像** — 通常 10–30 秒\n\n_已用 {int(elapsed)}s_"
+            yield (
+                f"⏳ **正在分析人像** — 通常 10–30 秒\n\n_已用 {int(elapsed)}s_",
+                gr.update(),
+            )
 
         if "error" in holder:
             raise gr.Error(f"分析失败: {holder['error']}")
@@ -213,7 +227,10 @@ def build_app():
             "**改造建议**：",
         ] + [f"- {s}" for s in d["suggested_directions"]]
         progress(1.0, desc="完成")
-        yield "\n".join(lines)
+        # Auto-sync the gender filter only when analyzer is confident
+        detected = d["gender"] if d["gender"] in ("male", "female") else None
+        gf_update = gr.update(value=detected) if detected else gr.update()
+        yield "\n".join(lines), gf_update
 
     default_provider = get_setting("default_provider") or (
         "openrouter" if get_api_key() else "pollinations"
@@ -237,6 +254,12 @@ def build_app():
                     choices=category_choices,
                     value=default_cat,
                     label="类别 / Category",
+                )
+                gender_filter = gr.Radio(
+                    choices=[("全部", "any"), ("男 ♂", "male"), ("女 ♀", "female")],
+                    value="any",
+                    label="性别筛选 / Gender",
+                    info="只显示对应性别的预设（防止给男生选到长发）",
                 )
                 preset = gr.Dropdown(
                     choices=[_label(s) for s in _presets_for(default_cat)],
@@ -264,11 +287,12 @@ def build_app():
                 status_md = gr.Markdown()
                 meta_md = gr.Markdown()
 
-        category.change(on_category_change, inputs=category, outputs=preset)
+        category.change(_refresh_presets, inputs=[category, gender_filter], outputs=preset)
+        gender_filter.change(_refresh_presets, inputs=[category, gender_filter], outputs=preset)
         analyze_btn.click(
             on_analyze,
             inputs=photo,
-            outputs=analysis_md,
+            outputs=[analysis_md, gender_filter],
             show_progress="full",
         )
         generate_btn.click(
