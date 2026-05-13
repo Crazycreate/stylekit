@@ -23,6 +23,24 @@ from .providers import (
 )
 
 
+CATEGORY_LABELS_ZH = {
+    "hairstyle": "发型",
+    "haircolor": "发色",
+    "outfit": "穿搭",
+    "accessory": "配饰",
+    "makeup": "妆容",
+    "multiview": "多视角",
+}
+
+
+def _category_choices() -> list[tuple[str, str]]:
+    """Return [(label, value)] pairs so the dropdown shows '英文 (中文)' but yields the raw key."""
+    return [
+        (f"{c} ({CATEGORY_LABELS_ZH.get(c, c)})", c)
+        for c in list_categories()
+    ]
+
+
 def _presets_for(category: str) -> list[Style]:
     return load_presets(category)
 
@@ -52,6 +70,7 @@ def build_app():
         ) from e
 
     categories = list_categories()
+    category_choices = _category_choices()
     default_cat = "hairstyle" if "hairstyle" in categories else categories[0]
 
     def on_category_change(cat: str):
@@ -125,7 +144,7 @@ def build_app():
         "openrouter" if get_api_key() else "pollinations"
     )
 
-    with gr.Blocks(title="stylekit — AI 试发型 / 试穿搭", theme=gr.themes.Soft()) as demo:
+    with gr.Blocks(title="stylekit — AI 试发型 / 试穿搭") as demo:
         gr.Markdown(
             "# 🎨 stylekit\n"
             "AI 试发型 / 试发色 / 试穿搭 / 试配饰 / 试妆容 / 多视角。\n"
@@ -140,9 +159,9 @@ def build_app():
 
             with gr.Column(scale=1):
                 category = gr.Dropdown(
-                    choices=categories,
+                    choices=category_choices,
                     value=default_cat,
-                    label="类别",
+                    label="类别 / Category",
                 )
                 preset = gr.Dropdown(
                     choices=[_label(s) for s in _presets_for(default_cat)],
@@ -187,7 +206,13 @@ def launch(
     share: bool = False,
 ) -> None:
     """Launch the Gradio app (blocking)."""
-    build_app().launch(server_name=host, server_port=port, share=share)
+    import gradio as gr
+    build_app().launch(
+        server_name=host,
+        server_port=port,
+        share=share,
+        theme=gr.themes.Soft(),
+    )
 
 
 if __name__ == "__main__":
