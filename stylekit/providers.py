@@ -53,6 +53,9 @@ class Provider(ABC):
             "hairstyle": "change ONLY the hairstyle (cut, shape, length, texture)",
             "haircolor": "change ONLY the hair color, keep the exact same cut/shape/length",
             "outfit": "change ONLY the clothing, keep hair and face identical",
+            "accessory": "add the specified accessory naturally; do NOT alter face, hair, or clothing otherwise",
+            "makeup": "apply ONLY the specified makeup look; keep hair, clothing, face structure and skin texture identical (no skin smoothing, no face reshaping)",
+            "multiview": "regenerate the SAME PERSON from the specified camera angle / framing; keep face identity, hair, makeup, clothing, and lighting identical",
         }.get(category, f"change the {category}")
 
     @staticmethod

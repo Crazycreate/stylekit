@@ -1,0 +1,79 @@
+# 妆容尝试预设
+# category=makeup. 只改妆容，不修脸不磨皮，保留皮肤真实质感。
+
+- id: clean_nude
+  name_zh: 干净裸妆
+  name_en: Clean Nude Makeup
+  category: makeup
+  subcategory: daily
+  description_zh: 通勤底妆 + 淡眉 + 唇釉
+  description_en: Daily natural-finish base, soft brows, sheer lip
+  best_for:
+    skin_tones: [warm, cool, neutral]
+    gender: female
+  prompt: |
+    Apply a clean nude daily makeup: smooth even base (do not smooth or alter skin texture, only
+    even out tone), softly defined natural brows, a hint of warm peach blush on the cheeks, no
+    visible eyeshadow, slightly groomed lashes, and a sheer nude-pink tinted lip gloss. Office-
+    appropriate, looks like skin breathing through. Keep face shape, hair, and clothing unchanged.
+
+- id: korean_dewy
+  name_zh: 韩系水光妆
+  name_en: Korean Dewy Glass Skin
+  category: makeup
+  subcategory: daily
+  description_zh: 水润光泽肌 + 雾面唇
+  description_en: Glass-skin dewy finish, blurred lip
+  best_for:
+    skin_tones: [cool, neutral]
+    gender: female
+  prompt: |
+    Apply a Korean glass-skin dewy makeup look: luminous, glowing, slightly wet-look base with
+    subtle highlight on cheekbones and nose tip, soft pink under-eye, straight feathery brows,
+    barely-there mascara, and a blurred soft-coral lip with the center slightly more saturated
+    ("gradient lip"). Skin texture must stay natural — no over-smoothing.
+
+- id: smoky_evening
+  name_zh: 烟熏晚妆
+  name_en: Smoky Evening Look
+  category: makeup
+  subcategory: evening
+  description_zh: 深棕烟熏眼 + 哑光红唇
+  description_en: Dark smoky eyes, matte red lip
+  best_for:
+    gender: female
+  prompt: |
+    Apply a sophisticated evening smoky-eye makeup: deep cool-brown to charcoal smoky eyeshadow
+    blended into the crease, black eyeliner subtly winged, full mascara, defined contour under the
+    cheekbones, and a matte true-red lip with a clean lip line. Confident, formal, photo-ready.
+    Keep face structure and hair identical.
+
+- id: peach_sweet
+  name_zh: 蜜桃甜系
+  name_en: Sweet Peach Look
+  category: makeup
+  subcategory: daily
+  description_zh: 蜜桃眼影 + 微醺腮红
+  description_en: Soft peach eyes and tipsy blush
+  best_for:
+    gender: female
+  prompt: |
+    Apply a sweet peach-toned makeup: warm peach eyeshadow softly blended on the lids, brown
+    eyeliner only on the upper lashline, fluffy curled lashes, a "tipsy" warm peach blush across
+    the cheeks and bridge of the nose, and a juicy coral-peach glossy lip. Youthful, soft,
+    flattering for daylight. Preserve original skin texture.
+
+- id: cool_neutral_male
+  name_zh: 男士清透裸妆
+  name_en: Men's Sheer Grooming
+  category: makeup
+  subcategory: daily
+  description_zh: 男生通勤极简修饰
+  description_en: Light grooming for men, almost invisible
+  best_for:
+    gender: male
+  prompt: |
+    Apply a very subtle men's grooming look: light tone-evening (does NOT smooth pores or beard
+    stubble — keep all skin texture), groomed natural brows, slight reduction of obvious blemishes
+    only, balanced lip color, faintly defined jawline shadow. Result should look like the person
+    woke up with great skin, not like wearing makeup.

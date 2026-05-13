@@ -219,7 +219,7 @@ def version():
 
 @app.command(name="list")
 def list_cmd(
-    category: str | None = typer.Option(None, "--category", "-c", help="hairstyle | haircolor | outfit"),
+    category: str | None = typer.Option(None, "--category", "-c", help="hairstyle | haircolor | outfit | accessory | makeup | multiview"),
     gender: str | None = typer.Option(None, "--gender", help="male | female"),
 ):
     """📋 列出可用预设。"""
@@ -327,7 +327,7 @@ def batch(
 @app.command()
 def recommend(
     photo: Path = typer.Option(..., "--photo", "-p", exists=True),
-    category: str = typer.Option("hairstyle", "--category", "-c", help="hairstyle | haircolor | outfit"),
+    category: str = typer.Option("hairstyle", "--category", "-c", help="hairstyle | haircolor | outfit | accessory | makeup | multiview"),
     top: int = typer.Option(6, "--top", "-n", help="生成多少个变体"),
     output_dir: Path = typer.Option(Path("./stylekit-out"), "--output-dir", "-o"),
     dry_run: bool = typer.Option(False, "--dry-run", help="只推荐不生图"),
@@ -405,6 +405,27 @@ def recommend(
     cost_str = f"${total_cost:.4f}" if total_cost > 0 else "免费"
     console.print(f"\n[green]✓[/green] {len(results)} 张完成  花费 [bold]{cost_str}[/bold]")
     console.print(f"[green]✓[/green] 对比图: [cyan]{grid_path}[/cyan]")
+
+
+@app.command()
+def web(
+    host: str = typer.Option("127.0.0.1", "--host", help="监听地址（0.0.0.0 = 局域网可访问）"),
+    port: int = typer.Option(7860, "--port", help="端口"),
+    share: bool = typer.Option(False, "--share", help="生成 gradio.live 公网临时链接（72h 有效）"),
+):
+    """🌐 启动 Gradio Web UI（需要 `pip install 'stylekit[web]'`）。"""
+    try:
+        from .webui import launch as _launch
+    except SystemExit:
+        raise
+    except ImportError as e:
+        console.print(Panel.fit(
+            "[red]Gradio 没装[/red]\n\n"
+            "  安装：[cyan]pip install 'stylekit[web]'[/cyan]",
+            border_style="red"))
+        raise typer.Exit(1) from e
+    console.print(f"[green]启动 Web UI[/green]：http://{host}:{port}")
+    _launch(host=host, port=port, share=share)
 
 
 if __name__ == "__main__":

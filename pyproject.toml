@@ -5,12 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "stylekit"
 version = "0.1.0"
-description = "AI-powered try-on for hairstyles, hair colors, and outfits — see yourself before the barbershop."
+description = "AI-powered try-on for hairstyles, hair colors, outfits, accessories, makeup and multi-view portraits — see yourself before the barbershop."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [{ name = "stylekit contributors" }]
-keywords = ["ai", "image-generation", "hairstyle", "outfit", "try-on", "openrouter", "gpt-image"]
+keywords = ["ai", "image-generation", "hairstyle", "outfit", "makeup", "try-on", "openrouter", "gpt-image", "gradio"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3.10",
@@ -31,11 +31,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.6"]
+web = ["gradio>=4.44"]
 
 [project.urls]
-Homepage = "https://github.com/znyupup/stylekit"
-Repository = "https://github.com/znyupup/stylekit"
-Issues = "https://github.com/znyupup/stylekit/issues"
+Homepage = "https://github.com/Crazycreate/stylekit"
+Repository = "https://github.com/Crazycreate/stylekit"
+Issues = "https://github.com/Crazycreate/stylekit/issues"
 
 [project.scripts]
 stylekit = "stylekit.cli:app"

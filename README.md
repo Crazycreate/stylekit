@@ -1,6 +1,6 @@
 # stylekit 🎨
 
-**AI 试发型 / 试发色 / 试穿搭** —— 在你走进理发店之前，先看看变身效果。
+**AI 试发型 / 试发色 / 试穿搭 / 试配饰 / 试妆容 / 多视角** —— 在你走进理发店之前，先看看变身效果。
 
 [English](#english) · [中文](#中文)
 
@@ -8,7 +8,7 @@
 
 ## 中文
 
-`stylekit` 是一个命令行工具 + Python 库。给它一张你的正面照，它会自动分析你的脸型/肤色/气质，推荐合适的发型/发色/穿搭，并用 AI 生成写实变身图。
+`stylekit` 是一个命令行 + Python 库 + Web UI。给它一张你的正面照，它会自动分析你的脸型/肤色/气质，推荐合适的发型/发色/穿搭/配饰/妆容，并用 AI 生成写实变身图——还能换 3/4 侧脸、侧面、全身视角看效果。
 
 ### ⚡ 零门槛快速试（推荐先试这条）
 
@@ -54,7 +54,8 @@ stylekit recommend --photo me.jpg   # AI 自动推荐 + 生成 6 张候选 + 对
 |---|---|
 | `stylekit setup` | 🔧 首次配置 API key + 默认模型 |
 | `stylekit doctor` | 🩺 诊断环境（key 是否能用、依赖是否齐） |
-| `stylekit list -c hairstyle` | 📋 看所有内置预设（hairstyle/haircolor/outfit） |
+| `stylekit list -c hairstyle` | 📋 看所有内置预设（hairstyle/haircolor/outfit/accessory/makeup/multiview） |
+| `stylekit web` | 🌐 启动 Gradio Web UI（浏览器拖图即用） |
 | `stylekit analyze -p me.jpg` | 🔍 AI 看照片：脸型、肤色、气质、改造建议 |
 | `stylekit transform -p me.jpg -s hairstyle:side_part` | ✨ 单个预设变体 |
 | `stylekit batch -p me.jpg --presets a,b,c` | 🎁 批量生成 |
@@ -83,13 +84,27 @@ stylekit batch -p me.jpg --presets \
   outfit:business_casual,outfit:korean_campus,outfit:vintage_french,outfit:athleisure
 ```
 
-### 内置预设（56+）
+### 内置预设（75+）
 
-- **20 款发型** · 男生 11 + 女生 10：商务、休闲、街头、复古、运动、约会、派对等
-- **16 款发色** · 自然棕系 / 时髦冷棕 / 蓝色系 / 粉色系
-- **20 款穿搭** · 按场合分：商务、约会、街头、运动、复古、夏冬季
+- **发型** · 男生 11 + 女生 10：商务、休闲、街头、复古、运动、约会、派对等
+- **发色** · 16 款 自然棕系 / 时髦冷棕 / 蓝色系 / 粉色系
+- **穿搭** · 20 款 按场合分：商务、约会、街头、运动、复古、夏冬季
+- **配饰** · 8 款 眼镜（圆框/眉线/方框/飞行员）、帽子（棒球帽/毛帽）、耳环（金圈/珍珠）
+- **妆容** · 5 款 干净裸妆 / 韩系水光 / 烟熏晚妆 / 蜜桃甜系 / 男士清透
+- **多视角** · 6 款 侧脸/3-4/后脑/全身/街拍（同一个人换镜头角度）
 
 所有预设都在 `stylekit/presets/*.yaml`，**自己加几行就能扩展**（无需改代码）。详见 [自定义预设指南](docs/presets_guide.md)。
+
+```bash
+# 试戴眼镜
+stylekit transform -p me.jpg -s accessory:round_metal_glasses
+
+# 试一个妆容
+stylekit transform -p me.jpg -s makeup:korean_dewy
+
+# 看自己的 3/4 侧脸（依赖高保真模型，建议 openrouter）
+stylekit transform -p me.jpg -s multiview:three_quarter_view
+```
 
 ### 切换图像模型
 
@@ -135,26 +150,41 @@ print(f"${result.cost_usd:.4f}")
 - API key **明文存在本地 `~/.config/stylekit/config.json`**，权限 600（Linux/macOS）
 - 没有任何遥测，没有任何分析
 
+### Web UI
+
+不想用命令行？一行启动浏览器版：
+
+```bash
+pip install "stylekit[web]"
+stylekit web                  # 默认 http://127.0.0.1:7860
+stylekit web --share          # 一次性公网链接（gradio.live, 72h）
+stylekit web --host 0.0.0.0   # 局域网内其他设备也能访问
+```
+
+界面里可以：上传照片 → 一键 AI 分析 → 选类别（发型/发色/穿搭/配饰/妆容/多视角）→ 选预设 → 生成，结果带耗时和花费明细。
+
 ### 路线图
 
 - [x] CLI + Python 库
-- [x] 56+ 内置预设，YAML 可扩展
+- [x] 75+ 内置预设，YAML 可扩展
 - [x] AI 推荐机制
 - [x] 持久化配置
-- [ ] Gradio Web UI（拖图选风格，浏览器里用）
+- [x] Gradio Web UI（`stylekit web`）
+- [x] 配饰试戴（眼镜 / 帽子 / 耳环）
+- [x] 妆容尝试
+- [x] 多视角生成（侧面 / 后面 / 全身）
 - [ ] Hugging Face Space 在线 demo（不用装就能玩）
-- [ ] 配饰试戴（眼镜 / 帽子 / 耳环）
-- [ ] 妆容尝试
-- [ ] 多视角生成（侧面 / 后面 / 全身）
+- [ ] 结果本地缓存（同 photo+preset+model 不重复调 API）
 
 ### 开发
 
 ```bash
-git clone https://github.com/znyupup/stylekit.git
+git clone https://github.com/Crazycreate/stylekit.git
 cd stylekit
-pip install -e ".[dev]"
+pip install -e ".[dev,web]"
 pytest                            # 跑测试
 ruff check stylekit               # 代码检查
+stylekit web                      # 启动 Web UI
 ```
 
 欢迎 PR！加新预设特别欢迎——按 `docs/presets_guide.md` 格式提交一个 YAML 即可。
@@ -167,7 +197,7 @@ ruff check stylekit               # 代码检查
 
 ## English
 
-`stylekit` is a CLI + Python library that uses AI to analyze your front-facing portrait, then generates realistic hairstyle, hair-color, and outfit variations.
+`stylekit` is a CLI + Python library + Gradio Web UI that uses AI to analyze your front-facing portrait, then generates realistic hairstyle, hair-color, outfit, accessory, makeup, and multi-angle variations.
 
 ### ⚡ 30-second start
 
@@ -190,6 +220,7 @@ Done. Open `./stylekit-out/` to see 6 AI-recommended variants + a comparison gri
 | `stylekit transform -p me.jpg -s hairstyle:side_part` | Single variant |
 | `stylekit batch -p me.jpg --presets a,b,c` | Batch |
 | **`stylekit recommend -p me.jpg`** | **Fully automatic** |
+| `stylekit web` | Launch Gradio Web UI (`pip install 'stylekit[web]'`) |
 
 ### Get an API key
 

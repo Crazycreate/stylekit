@@ -14,6 +14,9 @@ def test_categories():
     assert "hairstyle" in cats
     assert "haircolor" in cats
     assert "outfit" in cats
+    assert "accessory" in cats
+    assert "makeup" in cats
+    assert "multiview" in cats
 
 
 def test_unique_ids_per_category():

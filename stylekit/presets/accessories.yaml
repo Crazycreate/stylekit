@@ -1,0 +1,110 @@
+# 配饰试戴预设 (eyewear / hats / earrings)
+# category=accessory. 只改变配饰，不动发型、脸、衣服。
+
+- id: round_metal_glasses
+  name_zh: 圆形金属眼镜
+  name_en: Round Metal Glasses
+  category: accessory
+  subcategory: eyewear
+  description_zh: 文艺金丝圆框，斯文减龄
+  description_en: Thin gold round frames, scholarly retro look
+  best_for:
+    face_shapes: [square, oblong, oval]
+  prompt: |
+    Add a pair of round wire-frame eyeglasses in thin gold metal, lenses fully clear (no tint, no
+    reflections covering the eyes), sitting naturally on the bridge of the nose. The glasses should
+    look realistic with subtle shadow under the frame. Do not change hair, face, makeup, or clothing.
+
+- id: clubmaster_glasses
+  name_zh: 半框眉线眼镜
+  name_en: Clubmaster Browline Glasses
+  category: accessory
+  subcategory: eyewear
+  description_zh: 上黑下透的复古绅士款
+  description_en: Browline frames — vintage gentleman vibe
+  best_for:
+    face_shapes: [round, oval, heart]
+  prompt: |
+    Add a pair of classic browline (clubmaster) eyeglasses: thick black acetate top rim across the
+    brow, slim silver wire across the lower half, clear lenses. Positioned naturally. Vintage 60s
+    intellectual aesthetic. Keep everything else identical.
+
+- id: black_square_frames
+  name_zh: 黑色方框眼镜
+  name_en: Bold Black Square Frames
+  category: accessory
+  subcategory: eyewear
+  description_zh: 经典书卷气，存在感强
+  description_en: Bold square acetate frames
+  best_for:
+    face_shapes: [round, oval]
+  prompt: |
+    Add a pair of bold black square-shaped acetate eyeglasses with thick rims, clear lenses, no tint.
+    Frames sit naturally on the nose bridge. Strong, modern, slightly intellectual look. Keep
+    everything else unchanged.
+
+- id: aviator_sunglasses
+  name_zh: 飞行员墨镜
+  name_en: Aviator Sunglasses
+  category: accessory
+  subcategory: eyewear
+  description_zh: 经典飞行员，潇洒大气
+  description_en: Classic aviator sunglasses
+  best_for: {}
+  prompt: |
+    Add a pair of classic aviator sunglasses with thin gold metal frames and dark gradient lenses
+    (top darker, bottom lighter — eyes still subtly visible behind). Worn naturally. Confident,
+    timeless. Keep face, hair, and outfit unchanged.
+
+- id: black_baseball_cap
+  name_zh: 黑色棒球帽
+  name_en: Black Baseball Cap
+  category: accessory
+  subcategory: hat
+  description_zh: 街头日常百搭
+  description_en: Streetwear black baseball cap
+  best_for: {}
+  prompt: |
+    Add a plain black cotton baseball cap worn naturally, brim facing forward, slight curve to the
+    brim, no visible logo. Hair beneath is still partially visible at the sides and back. Casual
+    streetwear feel. Lighting and shadows on the cap match the rest of the photo.
+
+- id: wool_beanie
+  name_zh: 米色针织毛帽
+  name_en: Cream Knit Beanie
+  category: accessory
+  subcategory: hat
+  description_zh: 秋冬温柔氛围感
+  description_en: Soft knit beanie, autumn-winter mood
+  best_for: {}
+  prompt: |
+    Add a cream / off-white chunky knit wool beanie, slouchy fit, sitting just above the eyebrows
+    with a small fold at the bottom. Some hair visible at the sides. Cozy autumn / winter
+    atmosphere. Keep everything else identical.
+
+- id: gold_hoop_earrings
+  name_zh: 金色圈形耳环
+  name_en: Gold Hoop Earrings
+  category: accessory
+  subcategory: jewelry
+  description_zh: 简约金色圆圈，提气场
+  description_en: Minimal medium-size gold hoops
+  best_for:
+    gender: female
+  prompt: |
+    Add a pair of medium-size polished gold hoop earrings (about 3cm diameter), one in each visible
+    ear. Realistic specular highlights, subtle shadow on the neck where they almost touch. Do not
+    change hair, face, or outfit.
+
+- id: pearl_stud_earrings
+  name_zh: 珍珠耳钉
+  name_en: Pearl Stud Earrings
+  category: accessory
+  subcategory: jewelry
+  description_zh: 温柔知性的小珍珠
+  description_en: Classic small pearl studs
+  best_for:
+    gender: female
+  prompt: |
+    Add a pair of small (6mm) white round pearl stud earrings, one in each visible ear. Soft pearl
+    luster. Elegant, understated. Keep hair, face, and outfit unchanged.

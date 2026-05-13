@@ -1,0 +1,85 @@
+# 多视角生成预设
+# category=multiview. 同一个人，换镜头角度 / 取景方式。
+# 注意：依赖模型的 identity preservation 能力，OpenRouter 上 GPT-Image-2 / Nano Banana Pro 效果较好。
+
+- id: profile_left
+  name_zh: 左侧脸视角
+  name_en: Left Profile View
+  category: multiview
+  subcategory: angle
+  description_zh: 90° 左侧面，看发型轮廓
+  description_en: Strict 90° left profile — great for hairstyle silhouette
+  best_for: {}
+  prompt: |
+    Render the same person photographed from a strict 90-degree left profile view (camera at ear
+    level, person facing fully to the viewer's right). Keep identical hairstyle, hair color,
+    clothing, makeup, skin tone, age, and lighting direction. Reveal the side silhouette of the
+    hair and jawline. Photo-realistic studio portrait.
+
+- id: profile_right
+  name_zh: 右侧脸视角
+  name_en: Right Profile View
+  category: multiview
+  subcategory: angle
+  description_zh: 90° 右侧面
+  description_en: Strict 90° right profile
+  best_for: {}
+  prompt: |
+    Render the same person photographed from a strict 90-degree right profile view (camera at ear
+    level, person facing fully to the viewer's left). Keep identical hairstyle, hair color,
+    clothing, makeup, skin tone, age, and lighting. Photo-realistic.
+
+- id: three_quarter_view
+  name_zh: 3/4 侧脸
+  name_en: Three-Quarter View
+  category: multiview
+  subcategory: angle
+  description_zh: 45° 半侧，最显瘦最上镜
+  description_en: 45° three-quarter angle — flattering for face shape
+  best_for: {}
+  prompt: |
+    Render the same person from a 45-degree three-quarter angle (head turned slightly so the far
+    eye is partially hidden by the bridge of the nose). Keep identical hair, makeup, clothing,
+    skin, age, and lighting. Realistic portrait, soft natural light.
+
+- id: back_view
+  name_zh: 后脑勺视角
+  name_en: Back of Head View
+  category: multiview
+  subcategory: angle
+  description_zh: 看发型后侧的剪裁层次
+  description_en: Reveal the back of the haircut
+  best_for: {}
+  prompt: |
+    Render the same person photographed from directly behind, focused on the back of the head and
+    upper shoulders. Reveal the back layers, undercut, fade, or length of the current hairstyle.
+    Keep identical hair color, clothing, and lighting. Photo-realistic.
+
+- id: full_body_standing
+  name_zh: 全身站姿
+  name_en: Full Body Standing Shot
+  category: multiview
+  subcategory: framing
+  description_zh: 全身搭配试穿 OOTD
+  description_en: Full-body OOTD framing
+  best_for: {}
+  prompt: |
+    Render the same person as a full-body standing shot (head to feet visible), neutral relaxed
+    pose, hands at sides or one in pocket, plain neutral studio background. Keep identical face,
+    hair, hair color, current clothing (extend the outfit realistically down to shoes if the
+    original only showed bust-up — choose footwear that matches the outfit style). Photo-realistic
+    fashion catalog framing.
+
+- id: walking_candid
+  name_zh: 街拍走路抓拍
+  name_en: Candid Street Walking Shot
+  category: multiview
+  subcategory: framing
+  description_zh: 自然街拍氛围感
+  description_en: Candid street-photo vibe
+  best_for: {}
+  prompt: |
+    Render the same person as a candid street-photography shot: full or 3/4 body, mid-stride
+    walking pose, looking slightly off-camera, natural daylight, soft blurred urban background
+    (out-of-focus storefronts / trees). Keep identical face, hair, makeup, and outfit. Photo-
+    realistic, 35mm aesthetic.
