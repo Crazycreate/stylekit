@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stylekit"
+version = "0.1.0"
+description = "AI-powered try-on for hairstyles, hair colors, and outfits — see yourself before the barbershop."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "stylekit contributors" }]
+keywords = ["ai", "image-generation", "hairstyle", "outfit", "try-on", "openrouter", "gpt-image"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "httpx>=0.27",
+    "typer>=0.12",
+    "rich>=13.7",
+    "pyyaml>=6.0",
+    "pillow>=10.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/znyupup/stylekit"
+Repository = "https://github.com/znyupup/stylekit"
+Issues = "https://github.com/znyupup/stylekit/issues"
+
+[project.scripts]
+stylekit = "stylekit.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["stylekit"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"stylekit/presets" = "stylekit/presets"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]

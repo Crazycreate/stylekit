@@ -1,0 +1,295 @@
+# 穿搭预设 — 按场景分类
+# 商务正式
+- id: business_suit
+  name_zh: 商务深色西装
+  name_en: Business Dark Suit
+  category: outfit
+  subcategory: business
+  description_zh: 黑/藏青三件套，正式严谨
+  description_en: Classic dark business suit
+  best_for:
+    occasions: [business, formal, interview, wedding]
+  prompt: |
+    A professional dark navy or charcoal business suit (two-piece): well-tailored single-breasted jacket
+    with notch lapels, matching trousers, crisp white dress shirt, dark navy or burgundy silk tie,
+    polished leather shoes. Clean professional fit, business attire.
+
+- id: business_casual
+  name_zh: 商务休闲
+  name_en: Business Casual
+  category: outfit
+  subcategory: business
+  description_zh: 衬衫+休闲西裤，不打领带
+  description_en: Smart casual office look
+  best_for:
+    occasions: [office, business_casual, daily]
+  prompt: |
+    Smart business casual: a clean light-blue or white Oxford button-down shirt (untucked or partially
+    tucked), well-fitted dark slacks or chinos, brown or burgundy leather belt, brown leather loafers.
+    No tie, sleeves slightly rolled. Polished but relaxed.
+
+# 休闲日常
+- id: casual_tshirt_jeans
+  name_zh: T恤牛仔
+  name_en: T-shirt + Jeans
+  category: outfit
+  subcategory: casual
+  description_zh: 最日常基础
+  description_en: Classic casual everyday
+  best_for:
+    occasions: [daily, casual]
+  prompt: |
+    Casual everyday: a clean fitted plain white or light-gray cotton t-shirt, comfortable mid-wash blue
+    denim jeans (slim or straight), white minimalist sneakers. Simple effortless look.
+
+- id: knit_sweater
+  name_zh: 针织毛衣休闲
+  name_en: Knit Sweater Casual
+  category: outfit
+  subcategory: casual
+  description_zh: 秋冬温暖针织
+  description_en: Cozy autumn-winter knit
+  best_for:
+    occasions: [autumn, winter, daily, date]
+  prompt: |
+    A cozy oversized knit sweater in warm beige, oatmeal, or soft camel color with chunky texture and
+    crew or v-neckline. Layered over a white tee. Paired with dark slim trousers or relaxed jeans, leather
+    boots or clean sneakers. Warm autumn-winter aesthetic.
+
+- id: hoodie_streetwear
+  name_zh: 卫衣街头
+  name_en: Hoodie Streetwear
+  category: outfit
+  subcategory: street
+  description_zh: 卫衣 + 卡其工装裤
+  description_en: Oversized hoodie + cargo
+  best_for:
+    occasions: [casual, street, daily]
+  prompt: |
+    Streetwear: an oversized hoodie in earthy tones (sage green, dusty cream, faded charcoal) with simple
+    minimal logo or no graphic, baggy cargo pants in olive or beige, chunky white or beige sneakers.
+    Relaxed urban casual.
+
+# 街头潮流
+- id: oversized_streetwear
+  name_zh: 宽松街头
+  name_en: Oversized Streetwear
+  category: outfit
+  subcategory: street
+  description_zh: 大廓形 + 工装风
+  description_en: Loose silhouette street style
+  best_for:
+    occasions: [street, casual, party]
+  prompt: |
+    Oversized street style: a graphic-print boxy oversized t-shirt or short-sleeve button-up in muted
+    tone, baggy wide-leg cargo trousers with utility pockets, chunky platform sneakers in cream or white,
+    cap or bucket hat optional. Modern Tokyo/Seoul streetwear vibe.
+
+- id: techwear
+  name_zh: 机能风
+  name_en: Techwear
+  category: outfit
+  subcategory: street
+  description_zh: 黑色机能装备风
+  description_en: Functional tech-aesthetic
+  best_for:
+    occasions: [street, party]
+  prompt: |
+    Modern techwear: all-black or charcoal functional jacket with multiple utility pockets, water-resistant
+    tapered cargo pants with adjustable straps, black tactical-style boots or sneakers, optional small
+    crossbody utility bag. Futuristic urban explorer aesthetic.
+
+# 韩系学院
+- id: korean_campus
+  name_zh: 韩系学院风
+  name_en: Korean Campus Style
+  category: outfit
+  subcategory: preppy
+  description_zh: 毛背心+衬衫，学生气
+  description_en: Sweater vest + collared shirt
+  best_for:
+    occasions: [casual, daily, date]
+  prompt: |
+    Korean campus aesthetic: a fitted knit sweater vest in cream, beige, or pastel over a crisp white
+    or light-blue button-up shirt with collar showing, paired with slim mid-blue jeans or pleated trousers,
+    clean white minimal leather sneakers, optional canvas backpack. Soft preppy K-student vibe.
+
+- id: prep_blazer
+  name_zh: 学院西装外套
+  name_en: Preppy Blazer
+  category: outfit
+  subcategory: preppy
+  description_zh: 西装外套 + 衬衫学院风
+  description_en: Tailored blazer over shirt
+  best_for:
+    occasions: [daily, date, casual]
+  prompt: |
+    Preppy academia: a fitted tailored blazer in navy, charcoal, or camel wool, layered over a striped
+    Oxford shirt or knit polo, slim tailored trousers in matching tone, leather loafers, optional thin
+    silk pocket square or simple chain. Modern preppy refined.
+
+# 复古文艺
+- id: vintage_french
+  name_zh: 法式复古
+  name_en: French Vintage
+  category: outfit
+  subcategory: vintage
+  description_zh: 法式碎花 / 法式衬衫
+  description_en: Effortless Parisian style
+  best_for:
+    occasions: [date, casual, vacation]
+  prompt: |
+    French vintage aesthetic: a soft cream or pale-floral blouse or button-down shirt with delicate
+    detailing (lace trim or small print), high-waisted relaxed pants or A-line midi skirt, simple silk
+    scarf or thin gold pendant, classic loafers or ballerina flats. Effortless Parisian chic.
+
+- id: vintage_chinese
+  name_zh: 新中式
+  name_en: Modern Chinese Vintage
+  category: outfit
+  subcategory: vintage
+  description_zh: 现代改良中式服装
+  description_en: Updated traditional aesthetic
+  best_for:
+    occasions: [festival, date, casual]
+  prompt: |
+    Modern updated Chinese style: a fitted "盘扣" frog-button top in soft linen or silk-blend (jade green,
+    indigo, or cream), high-waisted wide-leg trousers or modified A-line skirt, minimal embroidery detail
+    at collar, simple leather sandals or fabric shoes. Refined "新中式" elegant.
+
+# 运动健身
+- id: athleisure
+  name_zh: 运动休闲
+  name_en: Athleisure
+  category: outfit
+  subcategory: sport
+  description_zh: 运动卫衣 + 紧身裤
+  description_en: Sport-meets-casual
+  best_for:
+    occasions: [sport, casual, daily]
+  prompt: |
+    Athleisure: a fitted moisture-wicking athletic top or zip-up sport jacket in monochrome (black, gray,
+    navy), matching slim joggers or fitness leggings, premium athletic sneakers, optional cap and slim
+    cross-body bottle holder. Sleek active urban.
+
+- id: running_gear
+  name_zh: 跑步装备
+  name_en: Running Outfit
+  category: outfit
+  subcategory: sport
+  description_zh: 专业跑步装
+  description_en: Performance running attire
+  best_for:
+    occasions: [sport, outdoor]
+  prompt: |
+    Performance running outfit: a breathable moisture-wicking athletic tank or short-sleeve in vibrant
+    or muted color, fitted running shorts (5-7 inch inseam) or compression tights, lightweight running
+    shoes with bold accent color, sport watch on wrist, hat optional. Energetic active look.
+
+# 约会优雅
+- id: date_elegant_female
+  name_zh: 约会连衣裙
+  name_en: Date Elegant Dress
+  category: outfit
+  subcategory: date
+  description_zh: 飘逸连衣裙
+  description_en: Flowing midi dress
+  best_for:
+    gender: female
+    occasions: [date, formal, party]
+  prompt: |
+    An elegant flowing midi dress: silk or chiffon material in soft pastel or jewel tone (dusty rose, sage
+    green, deep emerald), fitted bodice with v-neck or square neckline, flowing A-line or wrap skirt to
+    mid-calf, delicate gold jewelry, strappy nude heels. Feminine sophisticated romantic.
+
+- id: date_smart_male
+  name_zh: 约会精致男装
+  name_en: Date Smart Casual Male
+  category: outfit
+  subcategory: date
+  description_zh: 修身衬衫 + 西装裤
+  description_en: Refined date-night look
+  best_for:
+    gender: male
+    occasions: [date, dinner]
+  prompt: |
+    Refined date-night male outfit: a well-fitted button-down shirt in soft tone (sky blue, cream, or
+    deep burgundy), partially unbuttoned at collar, layered with a structured cardigan or unstructured
+    blazer in complementary tone, slim tailored chinos, leather Chelsea boots or loafers. Polished but
+    approachable.
+
+# 派对夜店
+- id: party_chic_female
+  name_zh: 派对修身
+  name_en: Party Chic Female
+  category: outfit
+  subcategory: party
+  description_zh: 修身闪片小礼服
+  description_en: Sleek party mini-dress
+  best_for:
+    gender: female
+    occasions: [party, nightlife]
+  prompt: |
+    Party chic: a fitted body-conscious mini dress in metallic, satin, or sequined fabric (champagne,
+    black, deep wine), with one-shoulder, halter, or sleek strap detail, strappy stiletto heels in nude
+    or matching tone, statement earrings, sleek clutch. Confident glamorous.
+
+- id: party_leather_male
+  name_zh: 派对皮夹克
+  name_en: Party Leather Jacket Male
+  category: outfit
+  subcategory: party
+  description_zh: 黑色皮夹克 + 修身
+  description_en: Rocker-edge party look
+  best_for:
+    gender: male
+    occasions: [party, nightlife]
+  prompt: |
+    Party rocker-chic male: a sleek black leather biker jacket (cropped or moto-style), fitted dark
+    t-shirt or henley underneath, slim black jeans or leather trousers, black Chelsea boots or
+    statement sneakers, minimal silver jewelry. Edgy confident.
+
+# 季节性
+- id: winter_long_coat
+  name_zh: 冬季长大衣
+  name_en: Winter Long Coat
+  category: outfit
+  subcategory: seasonal_winter
+  description_zh: 羊毛长大衣 + 围巾
+  description_en: Tailored wool overcoat
+  best_for:
+    occasions: [winter, formal, daily]
+  prompt: |
+    Winter outfit: a tailored wool overcoat reaching mid-calf in camel, dark navy, or charcoal, layered
+    over a fitted turtleneck sweater in cream or wine, dark trousers, leather boots, thick knit scarf
+    wrapped at neck, leather gloves. Warm sophisticated winter aesthetic.
+
+- id: summer_linen
+  name_zh: 夏季亚麻
+  name_en: Summer Linen Set
+  category: outfit
+  subcategory: seasonal_summer
+  description_zh: 亚麻衬衫+短裤
+  description_en: Breezy linen summer look
+  best_for:
+    occasions: [summer, vacation, casual]
+  prompt: |
+    Summer linen set: a relaxed-fit linen short-sleeve shirt in cream, sage, or pale blue, partially
+    unbuttoned, paired with matching or contrasting linen shorts or relaxed pants, woven leather
+    sandals or canvas espadrilles. Breezy effortless summer vibe.
+
+# 户外旅行
+- id: travel_outdoor
+  name_zh: 旅行户外
+  name_en: Travel Outdoor
+  category: outfit
+  subcategory: vacation
+  description_zh: 实用旅行装
+  description_en: Practical travel attire
+  best_for:
+    occasions: [vacation, outdoor, casual]
+  prompt: |
+    Practical travel outfit: a lightweight zip-up windbreaker or hooded shell jacket in earth tone,
+    breathable moisture-wicking t-shirt underneath, comfortable cargo or hiking pants with stretch,
+    durable trail sneakers or hiking shoes, small crossbody bag or backpack, baseball cap. Active outdoor
+    explorer.

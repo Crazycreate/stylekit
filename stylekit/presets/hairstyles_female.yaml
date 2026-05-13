@@ -1,0 +1,164 @@
+# 女生发型预设
+- id: air_bangs_long
+  name_zh: 空气刘海+长发微卷
+  name_en: Air Bangs + Long Wavy
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 遮高额头，减龄首选
+  description_en: Wispy bangs + long soft waves
+  best_for:
+    face_shapes: [round, oval, square]
+    gender: female
+    occasions: [daily, date]
+  prompt: |
+    A modern Korean-style "air bangs" hairstyle with long wavy hair: wispy thin air bangs falling
+    delicately across the forehead just above the eyebrows, lightly feathered and slightly parted in the
+    middle to softly frame the face. The rest of the hair is long, reaching past the chest, with gentle
+    soft natural waves and slight volume. Soft feminine youthful K-pop aesthetic.
+
+- id: french_bangs_bob
+  name_zh: 法式齐眉刘海+锁骨发
+  name_en: French Blunt Bangs + Collarbone Bob
+  category: hairstyle
+  subcategory: vintage
+  description_zh: 法式可爱风，最减龄
+  description_en: Straight bangs with chic collarbone bob
+  best_for:
+    face_shapes: [oval, oblong, heart]
+    gender: female
+    occasions: [daily, casual, party]
+  prompt: |
+    A trendy French-style straight blunt bangs with a chic collarbone-length bob: full straight bangs cut
+    just at the eyebrow line, slightly imperfect with a few wispy strands for softness. The rest falls in
+    a smooth bob ending at the collarbone, with subtle inward curl at the ends framing the jaw.
+    Parisian chic, slightly retro, youthful but sophisticated.
+
+- id: side_part_waves
+  name_zh: 侧分蓬松大波浪
+  name_en: Side-Part Long Waves
+  category: hairstyle
+  subcategory: vintage
+  description_zh: 优雅御姐风
+  description_en: Vintage Hollywood waves
+  best_for:
+    face_shapes: [round, oval, square]
+    gender: female
+    occasions: [formal, party, date]
+  prompt: |
+    An elegant side-parted long wavy hairstyle: deep side parting on the left, luxurious soft-flowing wavy
+    hair cascading down past the chest, voluminous waves with natural movement and shine. Vintage
+    Hollywood-glamour quality but kept natural. Mature elegant sophisticated.
+
+- id: korean_perm_short
+  name_zh: 韩系羊毛卷短发
+  name_en: Korean Sheep Wool Perm
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 蓬松潮流，俏皮可爱
+  description_en: Tight uniform curls, K-pop vibe
+  best_for:
+    face_shapes: [oval, oblong]
+    gender: female
+    occasions: [daily, casual]
+  prompt: |
+    A trendy Korean-style sheep wool perm short hairstyle: chin-to-shoulder length hair with tight uniform
+    soft curls throughout, creating fluffy cloud-like volume around the head. Tight but soft curls,
+    youthful playful texture. Cute modern K-student vibe.
+
+- id: eight_bangs_medium
+  name_zh: 八字刘海+中长发
+  name_en: 8-Curtain Bangs + Medium Hair
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 韩剧女主同款，温柔知性
+  description_en: K-drama heroine bangs
+  best_for:
+    face_shapes: [round, square, oval, oblong]
+    gender: female
+    occasions: [daily, date, formal]
+  prompt: |
+    A modern Korean "8-shaped curtain bangs" with medium-length natural hair: front bangs parted in the
+    middle and styled outward to either side in a graceful figure-8/curtain shape framing the face — the
+    curl-outward at the cheeks is the signature. Rest flows naturally to just below the shoulders with
+    gentle waves and light layers. K-drama heroine, gentle intelligent.
+
+- id: high_ponytail_bangs
+  name_zh: 高马尾+空气刘海
+  name_en: High Ponytail + Air Bangs
+  category: hairstyle
+  subcategory: casual
+  description_zh: 显瘦清爽，露脖子
+  description_en: High tied ponytail with wispy front
+  best_for:
+    face_shapes: [round, square, heart]
+    gender: female
+    occasions: [sport, casual, daily]
+  prompt: |
+    A high ponytail with delicate wispy air bangs: hair pulled up tightly into a high ponytail at the
+    crown of the head, with light wispy thin air bangs left out feathering the forehead, plus soft wispy
+    strands at the temples beside the face. Ponytail itself long, sleek with gentle wave at the end.
+    Youthful athletic-chic.
+
+- id: pixie_cut
+  name_zh: 精灵短发
+  name_en: Pixie Cut
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 干净利落，气质姐姐
+  description_en: Short, layered, edgy
+  best_for:
+    face_shapes: [oval, heart, diamond]
+    gender: female
+    occasions: [daily, professional, party]
+  prompt: |
+    A modern pixie cut: very short hair (3-8cm) on top with even shorter sides and back, slightly textured
+    and layered for soft movement. Can be swept to one side or worn slightly tousled. Shows off the neck
+    and ears. Chic confident edgy.
+
+- id: lob
+  name_zh: Lob 长锁骨发
+  name_en: Long Bob (Lob)
+  category: hairstyle
+  subcategory: casual
+  description_zh: 不长不短，最百搭
+  description_en: Below-shoulder universal length
+  best_for:
+    face_shapes: [round, oval, square, oblong]
+    gender: female
+    occasions: [daily, business, casual]
+  prompt: |
+    A long bob (lob): hair cut to just below the shoulders or at collarbone length, blunt or slightly
+    angled ends, parted in the middle or slightly off-center. Sleek straight or with very gentle natural
+    wave. Modern minimalist universally flattering style.
+
+- id: beach_waves
+  name_zh: 沙滩慵懒长发
+  name_en: Beach Waves
+  category: hairstyle
+  subcategory: casual
+  description_zh: 慵懒度假感
+  description_en: Tousled effortless waves
+  best_for:
+    face_shapes: [oval, oblong, heart]
+    gender: female
+    occasions: [casual, vacation, date]
+  prompt: |
+    Long beach waves: shoulder-length to mid-back hair with loose textured waves throughout, slightly
+    tousled and lived-in, with natural-looking volume — like just back from the beach. Parted off-center.
+    Effortless carefree vacation vibe.
+
+- id: braided_low_pony
+  name_zh: 低马尾+编发
+  name_en: Braided Low Ponytail
+  category: hairstyle
+  subcategory: elegant
+  description_zh: 优雅淑女感
+  description_en: Soft braid into low pony
+  best_for:
+    face_shapes: [oval, square, oblong]
+    gender: female
+    occasions: [formal, date, professional]
+  prompt: |
+    An elegant low ponytail with side braid detail: hair pulled to a low ponytail at the nape of the neck,
+    with a soft fishtail or three-strand braid integrated on one side of the head leading into the pony.
+    Soft tendrils framing the face. Sophisticated romantic.

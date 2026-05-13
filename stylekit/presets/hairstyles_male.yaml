@@ -1,0 +1,161 @@
+# 男生发型预设
+- id: side_part
+  name_zh: 三七分油头
+  name_en: Side Part Slick Back
+  category: hairstyle
+  subcategory: business
+  description_zh: 经典商务感，斜分线柔化下颌
+  description_en: Classic businessman look with side parting
+  best_for:
+    face_shapes: [square, oblong, round, oval]
+    gender: male
+    occasions: [business, formal, daily]
+  prompt: |
+    A classic men's side-part slicked-back hairstyle: hair parted neatly on the left side at a 7:3 ratio,
+    the longer top section combed sleekly to the side and slightly back with a subtle natural sheen
+    (not greasy), short tapered fade on the sides and back. Clean, mature, professional. Natural deep
+    black hair color unless dyed elsewhere in the photo.
+
+- id: textured_crop
+  name_zh: 法式纹理短发
+  name_en: French Textured Crop
+  category: hairstyle
+  subcategory: casual
+  description_zh: 顶部蓬松卷曲，自然减龄
+  description_en: Soft tousled crop with forward fringe
+  best_for:
+    face_shapes: [square, round, oval]
+    gender: male
+    occasions: [daily, casual]
+  prompt: |
+    A modern French textured crop hairstyle for men: the top is medium-short with visible natural messy
+    texture, slight curl and movement, swept forward into a soft fringe that falls just above the eyebrows.
+    Sides and back are short with a clean low fade. Soft, slightly tousled, modern and youthful.
+
+- id: pompadour
+  name_zh: 背头油头
+  name_en: Classic Pompadour
+  category: hairstyle
+  subcategory: business
+  description_zh: 高顶后梳，拉长脸型纵向感
+  description_en: High-volume backswept pompadour
+  best_for:
+    face_shapes: [square, round, heart]
+    gender: male
+    occasions: [formal, party]
+  prompt: |
+    A classic men's high pompadour: top hair grown longer, styled upward and back into a tall voluminous
+    pompadour with sleek glossy finish creating dramatic front height. Sides sharply tapered into tight
+    skin fade. Polished retro-classic Italian barbershop quality, mature confident.
+
+- id: korean_layered
+  name_zh: 韩系学院风蓬松刘海
+  name_en: Korean Layered with Airy Fringe
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 自然分线 + 蓬松前发，文艺减龄
+  description_en: Soft side-swept airy fringe, K-style
+  best_for:
+    face_shapes: [square, round, oblong]
+    gender: male
+    occasions: [daily, casual, date]
+  prompt: |
+    A trendy Korean-style soft layered hairstyle: medium-length hair with a natural side-swept airy fringe
+    falling softly across the forehead just covering the brow on one side, visible layering and gentle
+    volume on top. Sides medium-short, blending naturally. Soft, youthful, slightly preppy K-student vibe.
+
+- id: mullet
+  name_zh: 卷狼尾
+  name_en: Modern Curly Mullet
+  category: hairstyle
+  subcategory: streetwear
+  description_zh: 颈后留长前短，潮流个性
+  description_en: Curly modern interpretation of the mullet
+  best_for:
+    face_shapes: [oval, oblong]
+    gender: male
+    occasions: [street, party]
+  prompt: |
+    A modern men's curly mullet: short tapered sides and front, with longer textured curly hair at the back
+    extending down to the nape. Top has soft curls and waves with visible texture. Trendy individualistic
+    street-fashion aesthetic — modern, not retro 80s.
+
+- id: curtain_bangs
+  name_zh: 中分齐眉刘海
+  name_en: Middle-Part Curtain Bangs
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 中分柔化轮廓，遮高额头
+  description_en: Symmetrical curtain bangs framing the face
+  best_for:
+    face_shapes: [square, oblong, oval]
+    gender: male
+    occasions: [daily, casual]
+  prompt: |
+    A modern men's center-parted curtain bangs hairstyle: medium-length hair parted directly down the middle,
+    bangs falling symmetrically on both sides of the face, framing the forehead and partially covering the
+    temples. Sides medium-short, tucked behind ears. Slight natural wave. Soft Korean/Japanese young man.
+
+- id: undercut
+  name_zh: 锅盖式 Undercut
+  name_en: Disconnected Undercut
+  category: hairstyle
+  subcategory: street
+  description_zh: 顶部留长 + 两侧剃光，强对比
+  description_en: Long top with shaved sides — bold contrast
+  best_for:
+    face_shapes: [oval, square, heart]
+    gender: male
+    occasions: [street, party]
+  prompt: |
+    A disconnected undercut hairstyle: top hair grown long (8-12cm), parted or swept, with a hard
+    disconnected line where it meets the shaved-short sides (#0-#2 razor). Edge is crisp. Top can be styled
+    backward or to one side. Bold contemporary look.
+
+- id: man_bun
+  name_zh: 男士小揪揪
+  name_en: Half Man Bun
+  category: hairstyle
+  subcategory: trendy
+  description_zh: 顶部抓起小揪揪，潮男感
+  description_en: Top-tied half bun, hipster aesthetic
+  best_for:
+    face_shapes: [oval, oblong]
+    gender: male
+    occasions: [casual, street]
+  prompt: |
+    A men's half-up man bun: medium-long hair (shoulder length or longer) with the top section pulled up
+    and tied into a small bun at the crown, while the remaining lower hair flows down naturally past the
+    shoulders. Slightly messy and effortless. Natural deep black or dark brown.
+
+- id: buzz_cut
+  name_zh: 标准寸头
+  name_en: Buzz Cut
+  category: hairstyle
+  subcategory: minimal
+  description_zh: 简洁干练，凸显五官
+  description_en: Minimal even-length crew cut
+  best_for:
+    face_shapes: [oval, heart, diamond]
+    gender: male
+    occasions: [sport, business, military]
+  prompt: |
+    A clean classic buzz cut: hair clipped uniformly to 3-6mm across the entire head with a slightly
+    longer top (5-8mm) versus sides (3mm). Sharp clean hairline at the temples and neckline. Minimal,
+    crisp, masculine.
+
+- id: quiff
+  name_zh: 飞机头 Quiff
+  name_en: Modern Quiff
+  category: hairstyle
+  subcategory: business
+  description_zh: 前发挑高定型，干练时髦
+  description_en: Lifted front with structured volume
+  best_for:
+    face_shapes: [round, square, oblong]
+    gender: male
+    occasions: [business, daily, party]
+  prompt: |
+    A modern men's quiff: front section lifted up and back with significant volume, top kept medium-length
+    and slightly textured, sides faded short. The hair has a structured "swoop" rising from the forehead
+    backward. Less extreme than a pompadour but still dramatic. Polished but contemporary.

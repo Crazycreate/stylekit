@@ -1,0 +1,213 @@
+# 发色预设 — 通用，部分按肤色/性别在 best_for 里限定
+- id: chocolate_brown
+  name_zh: 巧克力棕
+  name_en: Chocolate Brown
+  category: haircolor
+  subcategory: natural
+  description_zh: 自然显白不夸张，公司学校通吃
+  description_en: Daily warm rich brown, universally flattering
+  best_for:
+    skin_tones: [warm, neutral, cool]
+  prompt: |
+    Natural rich chocolate brown — warm medium-dark brown with subtle warm undertones, very natural-looking
+    like high-quality salon dye, slight golden highlights catching light.
+
+- id: milk_tea_brown
+  name_zh: 奶茶棕
+  name_en: Milk Tea Brown
+  category: haircolor
+  subcategory: trendy
+  description_zh: 性价比高，比黑发更显气质
+  description_en: Soft K-pop trending creamy beige-brown
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Soft "milk tea brown" — light-medium warm beige-brown with creamy soft tone, slightly muted, very
+    flattering on Asian skin, popular K-pop trendy color with subtle lighter strands.
+
+- id: chestnut_brown
+  name_zh: 栗子棕
+  name_en: Chestnut Brown
+  category: haircolor
+  subcategory: natural
+  description_zh: 自然百搭，最显健康
+  description_en: Warm reddish chestnut, healthy look
+  best_for:
+    skin_tones: [warm, neutral]
+  prompt: |
+    Natural chestnut brown — medium brown with rich warm reddish-brown undertones, like the inside of a
+    roasted chestnut, healthy natural look, safest universally flattering color for Asian skin.
+
+- id: misty_ash_brown
+  name_zh: 雾感灰棕
+  name_en: Misty Ash Brown
+  category: haircolor
+  subcategory: trendy
+  description_zh: 冷皮显白爆款，最潮
+  description_en: Korean trending cool gray-brown
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Cool misty ash-brown — medium brown with strong cool grayish undertones, slightly desaturated and
+    matte, very modern and Korean-trending, especially flattering on cool-toned Asian skin, with subtle
+    silver-cool highlights catching light.
+
+- id: burgundy_brown
+  name_zh: 酒红棕
+  name_en: Burgundy Wine Brown
+  category: haircolor
+  subcategory: bold
+  description_zh: 质感高级，冷皮 carry 最好的暖色
+  description_en: Deep wine-red base, sophisticated
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Rich burgundy wine-red brown — dark brown base with prominent deep wine-red / burgundy undertones,
+    especially visible where light hits, sophisticated and slightly mysterious, expensive Korean salon
+    level dye.
+
+- id: cool_tea_brown
+  name_zh: 冷茶棕
+  name_en: Cool Tea Brown
+  category: haircolor
+  subcategory: trendy
+  description_zh: 干净通透，清爽减龄
+  description_en: Clear cool brown like cold tea
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Cool tea brown — light-to-medium brown with cool subtle smoky undertone, like clear cold tea with a
+    hint of milk, very natural ethereal clean. Polished and intelligent.
+
+- id: milk_coffee_brown
+  name_zh: 奶咖棕
+  name_en: Milk Coffee Brown
+  category: haircolor
+  subcategory: trendy
+  description_zh: 温柔知性
+  description_en: Soft creamy latte tone
+  best_for:
+    skin_tones: [warm, neutral]
+  prompt: |
+    Soft milk-coffee brown — warm but creamy light-medium brown with a soft creamy beige undertone like
+    a latte with extra milk, gentle and approachable, popular trending soft girl color.
+
+- id: muted_green
+  name_zh: 闷青色
+  name_en: Matte Muted Green
+  category: haircolor
+  subcategory: bold
+  description_zh: 个性时髦但偏夸张
+  description_en: Dark base with muted green-blue undertones
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Trendy "muted green" — dark brown-black hair with subtle muted blue-green undertones visible
+    especially in highlights, fashion-forward unconventional but not bright, sophisticated cool tone.
+
+- id: sea_salt_green
+  name_zh: 海盐青棕
+  name_en: Sea Salt Green Brown
+  category: haircolor
+  subcategory: bold
+  description_zh: 时髦个性，冷皮专属
+  description_en: Cool teal-brown blend
+  best_for:
+    skin_tones: [cool]
+  prompt: |
+    Sea-salt green-brown — dark brown base with subtle muted blue-green / matte teal undertones visible
+    especially in highlights, fashionable individual cool-toned color, edgy yet polished.
+
+# 蓝色系
+- id: misty_blue_gray
+  name_zh: 雾感蓝灰
+  name_en: Misty Blue Gray
+  category: haircolor
+  subcategory: blue
+  description_zh: 灰为主蓝点缀，温和不夸张
+  description_en: Subtle dusty blue-gray
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Misty blue-gray — medium gray-brown base with subtle dusty blue undertones throughout, slightly
+    desaturated and matte, soft fog with hint of blue. Subtle sophisticated daily-wearable.
+
+- id: navy_blue
+  name_zh: 海军蓝
+  name_en: Navy Blue
+  category: haircolor
+  subcategory: blue
+  description_zh: 深蓝有质感，沉稳
+  description_en: Rich dark royal blue
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Rich navy blue — saturated deep navy / dark royal blue hair color, clearly identifiable as blue but
+    in the deep darker range, bold but elegant, like deep ocean.
+
+- id: dreamy_lake_blue
+  name_zh: 梦幻湖水蓝
+  name_en: Dreamy Lake Blue
+  category: haircolor
+  subcategory: blue
+  description_zh: 中等蓝度，少女感
+  description_en: Soft pastel sky blue
+  best_for:
+    skin_tones: [cool]
+  prompt: |
+    Dreamy lake-water blue — medium-light pastel-soft sky-blue / lake-water blue, dreamy and soft, almost
+    ethereal Disney princess quality, like clear lake water on a sunny day.
+
+# 粉色系
+- id: milk_apricot_pink
+  name_zh: 奶杏粉
+  name_en: Milk Apricot Pink
+  category: haircolor
+  subcategory: pink
+  description_zh: 浅粉杏调，温柔自然
+  description_en: Soft creamy peach-pink
+  best_for:
+    skin_tones: [cool, neutral]
+  prompt: |
+    Soft milk apricot pink — light creamy pink with subtle warm apricot/peach undertones, very soft and
+    approachable like creamy peach milkshake, gentle and flattering on cool-toned Asian skin.
+
+- id: cherry_blossom_pink
+  name_zh: 樱花粉
+  name_en: Cherry Blossom Pink
+  category: haircolor
+  subcategory: pink
+  description_zh: 仙气，二次元少女
+  description_en: Pastel pink with lavender hint
+  best_for:
+    skin_tones: [cool]
+  prompt: |
+    Cherry blossom pink — light pastel pink with subtle lavender undertone like real cherry blossom
+    petals, soft ethereal slightly cooler than peachy pink, fairy-tale aesthetic.
+
+- id: nude_pink_brown
+  name_zh: 裸粉棕
+  name_en: Nude Pink Brown
+  category: haircolor
+  subcategory: pink
+  description_zh: 唯一日常可驾驭的粉，通勤约会通吃
+  description_en: Rosy brown — pink woven into brown
+  best_for:
+    skin_tones: [cool, neutral, warm]
+  prompt: |
+    Nude pink-brown — medium-dark brown base with prominent rosy pink undertones throughout, fashion-forward
+    sophisticated "pink brown" Korean salon color, clearly visible pinkish-rosy quality woven into brown,
+    subtle but unmistakable. Daily-wearable.
+
+- id: misty_pink_purple
+  name_zh: 雾感粉紫
+  name_en: Misty Pink Purple
+  category: haircolor
+  subcategory: pink
+  description_zh: 粉紫渐变，神秘梦幻
+  description_en: Pink-to-lavender gradient
+  best_for:
+    skin_tones: [cool]
+  prompt: |
+    Misty pink-purple — dreamy gradient from soft pink at roots transitioning into lavender-purple at the
+    ends (or evenly mixed), slightly muted, ethereal fairy-quality, sophisticated unconventional fashion.
